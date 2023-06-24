@@ -1,0 +1,36 @@
+.search {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+
+    width: 100%;
+
+    padding-inline: 1.5em;
+    border-radius: .3em;
+    background-color: var(--color-element-bg);
+    color: var(--color-input);
+
+    box-shadow: var(--box-shadow);
+
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+        width: 40%;
+    }
+
+    &__input {
+        flex-grow: 1;
+
+        padding-block: 1em;
+        background-color: transparent;
+        border: none;
+        color: var(--color-input);
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+
+}

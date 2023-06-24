@@ -1,0 +1,24 @@
+.scheme {
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+
+        font-weight: 600;
+
+        border: none;
+        border-radius: .3em;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::selection {
+            background-color: transparent;
+        }
+    }
+}
