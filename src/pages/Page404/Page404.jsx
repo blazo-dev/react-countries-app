@@ -1,12 +1,15 @@
 import Link from '../../components/router/link/Link'
+import './Page404.scss'
 
 function Page404 () {
   return (
-    <>
-      <h1>Page not found</h1>
-      <p>404</p>
-      <Link href='/countries'>Go to countries</Link>
-    </>
+    <div className='not-found'>
+      <h1 className='not-found__title'>Page not found</h1>
+      <p className='not-found__code'>404</p>
+      <Link className='not-found__link' href='/countries'>
+        Go to countries
+      </Link>
+    </div>
   )
 }
 
