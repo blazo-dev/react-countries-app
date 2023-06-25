@@ -4,22 +4,35 @@ export async function getAllCountries () {
     const countries = await response.json()
     return countries.map(
       (country) => {
+        let languages = []
+        let nativeNames = {}
+
+        if (country.languages) {
+          languages = Object.values(country.languages)
+        }
+
+        if (country.name.nativeName) {
+          nativeNames = Object.values(country.name.nativeName)[0]
+        }
+
         return {
           name: country.name,
           population: country.population,
           region: country.region,
           subregion: country.subregion,
           capital: country.capital,
-          topLevelDomain: country.topLevelDomain,
+          topLevelDomain: country.tld,
           currencies: country.currencies,
-          languages: country.languages,
+          languages,
+          nativeNames,
           borders: country.borders,
-          alphaCode: country.cca2,
+          alphaCode: country.cca3,
           flags: country.flags
         }
       }
     )
   } catch (e) {
+    console.log(e)
     throw new Error('Error fetching countries')
   }
 }

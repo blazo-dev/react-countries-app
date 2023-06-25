@@ -1,0 +1,20 @@
+.app {
+    &__button {
+        display: inline-flex;
+        gap: .7em;
+        padding: 0.5em 1.5em;
+
+        text-decoration: none;
+
+        background-color: var(--color-element-bg);
+        color: var(--color-text);
+        border: none;
+        box-shadow: var(--box-shadow);
+
+        transition: opacity .3s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { CountriesContext } from '../context/countries.context'
 
 function useCountries () {
   const { countries, setCountries, filteredCountries, setFilteredCountries } = useContext(CountriesContext)
-  const [country, setCountry] = useState({ name: { common: '' } })
+  const [country, setCountry] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 

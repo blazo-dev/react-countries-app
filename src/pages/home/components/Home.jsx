@@ -1,13 +1,12 @@
 import Link from '../../../components/router/link/Link'
-import './Home.scss'
+
 function Home () {
   return (
     <div className='home'>
-      <h1 className='home__title'>Let's look for a country!!!</h1>
-      <Link
-        className='home__link'
-        href='/countries'
-      >
+      <h1 className='home__title'>
+        Let's look for a country! Click below to see all countries.
+      </h1>
+      <Link className='app__button home__button' href='/countries'>
         See all countries
       </Link>
     </div>
