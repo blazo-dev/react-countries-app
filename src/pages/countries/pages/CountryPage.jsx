@@ -15,7 +15,7 @@ function CountryPage ({ countryCode }) {
 
   return (
     <section className='country'>
-      <Link className='country__button app__button' href='/countries'>
+      <Link className='country__button app__button' href='/'>
         <i className='fa-solid fa-arrow-left-long' /> Back
       </Link>
       {country && (
@@ -77,7 +77,7 @@ function CountryPage ({ countryCode }) {
                     >
                       <Link
                         className='app__button country__border-link'
-                        href={`/countries/${border}`}
+                        href={`/${border}`}
                       >
                         {border}
                       </Link>

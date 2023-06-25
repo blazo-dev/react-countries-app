@@ -1,22 +1,17 @@
 import Router from '../../components/router/Router'
 import CountriesProvider from '../../context/countries.context'
-import Page404 from '../page404/Page404'
 import { Countries } from '../countries'
 import CountryPage from '../countries/pages/CountryPage'
+import Page404 from '../page404/Page404'
 import './HomePage.scss'
-import Home from './components/Home'
 
 const routes = [
   {
     path: '/',
-    Component: Home
-  },
-  {
-    path: '/countries',
     Component: Countries
   },
   {
-    path: '/countries/:countryCode',
+    path: '/:countryCode',
     Component: CountryPage
   }
 ]

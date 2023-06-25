@@ -13,7 +13,7 @@ function CountryCard ({ country }) {
         />
       </header>
       <main className='card__body'>
-        <Link className='card__title' href={`countries/${country.alphaCode}`}>{country.name.common}</Link>
+        <Link className='card__title' href={`/${country.alphaCode}`}>{country.name.common}</Link>
         <ul className='card__list'>
           <li className='card__list-item'>
             <strong className='card__list-item-title'>Population:</strong>
