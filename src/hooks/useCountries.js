@@ -1,9 +1,10 @@
 import { useCallback, useContext, useState } from 'react'
-import { getAllCountries } from '../pages/countries'
+import { getAllCountries, getCountryByCode } from '../pages/countries'
 import { CountriesContext } from '../context/countries.context'
 
 function useCountries () {
-  const { setCountries, filteredCountries, setFilteredCountries } = useContext(CountriesContext)
+  const { countries, setCountries, filteredCountries, setFilteredCountries } = useContext(CountriesContext)
+  const [country, setCountry] = useState({ name: { common: '' } })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -21,7 +22,20 @@ function useCountries () {
     }
   }, [])
 
-  return { filteredCountries, getCountries, isLoading, error }
+  const getCountry = useCallback(async (countryCode) => {
+    try {
+      setIsLoading(true)
+      setError(null)
+      const newCountry = await getCountryByCode(countryCode, countries)
+      setCountry(newCountry)
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
+
+  return { country, getCountry, filteredCountries, getCountries, isLoading, error }
 }
 
 export default useCountries

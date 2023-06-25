@@ -24,8 +24,8 @@ export async function getAllCountries () {
   }
 }
 
-export function getCountryByName (countryName, countries) {
-  const country = countries.find((c) => c.name.common === countryName)
+export function getCountryByCode (countryCode, countries) {
+  const country = countries.find((country) => country.alphaCode === countryCode)
   return country || null
 }
 

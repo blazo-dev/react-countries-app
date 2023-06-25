@@ -1,6 +1,6 @@
 import Router from '../../components/router/Router'
 import CountriesProvider from '../../context/countries.context'
-import Page404 from '../Page404/Page404'
+import Page404 from '../page404/Page404'
 import { Countries } from '../countries'
 import CountryPage from '../countries/pages/CountryPage'
 import './HomePage.scss'
