@@ -6,13 +6,20 @@ export async function getAllCountries () {
       (country) => {
         let languages = []
         let nativeNames = {}
+        let currencies = []
 
         if (country.languages) {
-          languages = Object.values(country.languages)
+          const languagesValue = Object.values(country.languages)
+          languages = languagesValue.join(', ')
         }
 
         if (country.name.nativeName) {
           nativeNames = Object.values(country.name.nativeName)[0]
+        }
+
+        if (country.currencies) {
+          const currenciesValues = Object.values(country.currencies)
+          currencies = currenciesValues.map(currency => currency.name).join(', ')
         }
 
         return {
@@ -22,9 +29,9 @@ export async function getAllCountries () {
           subregion: country.subregion,
           capital: country.capital,
           topLevelDomain: country.tld,
-          currencies: country.currencies,
           languages,
           nativeNames,
+          currencies,
           borders: country.borders,
           alphaCode: country.cca3,
           flags: country.flags

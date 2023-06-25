@@ -57,10 +57,12 @@ function CountryPage ({ countryCode }) {
                 {country.topLevelDomain}
               </p>
               <p className='country__detail'>
+                <strong className='country__strong'>Currencies: </strong>
+                {country.currencies}
+              </p>
+              <p className='country__detail'>
                 <strong className='country__strong'>Languages: </strong>
-                {country.languages.map((language) => (
-                  <span key={language}>{language}</span>
-                ))}
+                {country.languages}
               </p>
             </div>
             {country.borders && (

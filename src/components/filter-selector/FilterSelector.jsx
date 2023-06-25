@@ -13,12 +13,8 @@ function FilterSelector () {
     toggleCheck()
   }
 
-  const handledLeave = () => {
-    toggleCheck()
-  }
-
   const handledFilter = (filter) => {
-    toggleCheck(false)
+    toggleCheck()
     setFilters({ region: filter })
   }
 
@@ -36,7 +32,7 @@ function FilterSelector () {
         checked={checked}
         onChange={handledChecked}
       />
-      <ul className='filter__list' onMouseLeave={handledLeave}>
+      <ul className='filter__list'>
         {filtersToShow.map((filter) => (
           <li
             key={filter}
