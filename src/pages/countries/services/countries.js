@@ -23,3 +23,15 @@ export async function getAllCountries () {
     throw new Error('Error fetching countries')
   }
 }
+
+export function getCountryByName (countryName, countries) {
+  const country = countries.find((c) => c.name.common === countryName)
+  return country || null
+}
+
+export function getCountriesByName (countryName, countries) {
+  const searchedCountries = countries.filter(country => {
+    return country.name.common.toLowerCase().includes(countryName.toLowerCase())
+  })
+  return searchedCountries
+}

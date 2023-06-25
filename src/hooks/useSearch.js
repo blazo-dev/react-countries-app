@@ -1,14 +1,12 @@
 import { useContext, useEffect, useState } from 'react'
 import { CountriesContext } from '../context/countries.context'
+import { getCountriesByName } from '../pages/countries/services/countries'
 
 function useSearch () {
   const [search, setSearch] = useState('')
   const { countries, setFilteredCountries } = useContext(CountriesContext)
-
   useEffect(() => {
-    const searchedCountries = countries.filter(country => {
-      return country.name.common.toLowerCase().includes(search.toLowerCase())
-    })
+    const searchedCountries = getCountriesByName(search, countries)
     setFilteredCountries(searchedCountries)
   }, [search])
 
