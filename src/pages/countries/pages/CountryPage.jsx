@@ -2,20 +2,21 @@ import { useEffect } from 'react'
 import { useCountries } from '../../../hooks'
 import Link from '../../../components/router/link/Link'
 import './CountryPage.scss'
+import CountryTag from '../components/country-tag/CountryTag'
 function CountryPage ({ countryCode }) {
-  const { country, getCountry, getCountries } = useCountries()
+  const { country, getCountries, getCountry } = useCountries()
 
-  const handleGetCountry = (country = countryCode) => {
-    getCountry(country)
-  }
   useEffect(() => {
     getCountries()
-    handleGetCountry()
-  }, [])
+    getCountry(countryCode)
+  }, [country])
 
   return (
     <section className='country'>
-      <Link className='country__button app__button' href='/'>
+      <Link
+        className='country__button app__button'
+        href='/'
+      >
         <i className='fa-solid fa-arrow-left-long' /> Back
       </Link>
       {country && (
@@ -70,18 +71,10 @@ function CountryPage ({ countryCode }) {
                 <h3 className='country__borders__title'>Borders Countries:</h3>
                 <ul className='country__borders'>
                   {country.borders.map((border) => (
-                    <li
-                      className='country__border'
+                    <CountryTag
                       key={border}
-                      onClick={() => handleGetCountry(border)}
-                    >
-                      <Link
-                        className='app__button country__border-link'
-                        href={`/${border}`}
-                      >
-                        {border}
-                      </Link>
-                    </li>
+                      countryCode={border}
+                    />
                   ))}
                 </ul>
               </div>

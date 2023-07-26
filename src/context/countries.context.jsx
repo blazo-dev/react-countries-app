@@ -5,6 +5,7 @@ export const CountriesContext = createContext()
 export default function CountriesProvider ({ children }) {
   const [filters, setFilters] = useState({ region: 'All' })
   const [countries, setCountries] = useState([])
+  const [country, setCountry] = useState(null)
   const [filteredCountries, setFilteredCountries] = useState([])
 
   return (
@@ -16,9 +17,11 @@ export default function CountriesProvider ({ children }) {
           countries,
           setCountries,
           filteredCountries,
-          setFilteredCountries
+          setFilteredCountries,
+          country,
+          setCountry
         }),
-        [filters, countries, filteredCountries]
+        [filters, countries, filteredCountries, country]
       )}
     >
       {children}

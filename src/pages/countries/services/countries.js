@@ -39,7 +39,7 @@ export async function getAllCountries () {
       }
     )
   } catch (e) {
-    console.log(e)
+    console.error(e)
     throw new Error('Error fetching countries')
   }
 }

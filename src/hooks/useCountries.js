@@ -3,8 +3,14 @@ import { getAllCountries, getCountryByCode } from '../pages/countries'
 import { CountriesContext } from '../context/countries.context'
 
 function useCountries () {
-  const { countries, setCountries, filteredCountries, setFilteredCountries } = useContext(CountriesContext)
-  const [country, setCountry] = useState(null)
+  const {
+    countries,
+    setCountries,
+    filteredCountries,
+    setFilteredCountries,
+    setCountry,
+    country
+  } = useContext(CountriesContext)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -22,11 +28,11 @@ function useCountries () {
     }
   }, [])
 
-  const getCountry = useCallback(async (countryCode) => {
+  const getCountry = useCallback((countryCode) => {
     try {
       setIsLoading(true)
       setError(null)
-      const newCountry = await getCountryByCode(countryCode, countries)
+      const newCountry = getCountryByCode(countryCode, countries)
       setCountry(newCountry)
     } catch (e) {
       setError(e.message)
@@ -35,7 +41,28 @@ function useCountries () {
     }
   }, [])
 
-  return { country, getCountry, filteredCountries, getCountries, isLoading, error }
+  const getCountryName = useCallback((countryCode) => {
+    try {
+      setIsLoading(true)
+      setError(null)
+      const newCountry = getCountryByCode(countryCode, countries)
+      return newCountry.name.common
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
+
+  return {
+    country,
+    getCountry,
+    getCountryName,
+    filteredCountries,
+    getCountries,
+    isLoading,
+    error
+  }
 }
 
 export default useCountries
