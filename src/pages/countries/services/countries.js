@@ -1,6 +1,8 @@
+import { API_URL } from '../../../constants/index.js'
+
 export async function getAllCountries () {
   try {
-    const response = await fetch('https://restcountries.com/v3.1/all')
+    const response = await fetch(API_URL)
     const countries = await response.json()
     return countries.map(
       (country) => {

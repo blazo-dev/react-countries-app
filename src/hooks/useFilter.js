@@ -8,8 +8,7 @@ function useFilter () {
     const newCountries = countries.filter((country) => {
       const { region } = filters
 
-      const countrySameRegion = region === 'All' || country.region === region
-      return countrySameRegion
+      return region === 'All' || country.region === region
     })
 
     setFilteredCountries(newCountries)
