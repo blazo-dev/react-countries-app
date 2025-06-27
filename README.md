@@ -26,7 +26,7 @@ Users can:
 ### 🔗 Links
 
 * 💾 [GitHub Repository](https://github.com/blazo-dev/frontendmentor-react-countries-app)
-* 🌐 [Live Demo](https://blazo-countries-app.netlify.app/)
+* 🌐 [Live Demo](https://blazo-react-countries-app.vercel.app/)
 
 ---
 
